@@ -59,10 +59,11 @@ if (process.argv[2] === "concert-this"){
 }
 
 if (process.argv[2] === "spotify-this-song"){
-    if(process.argv[3] ==""){
-        console.log("please insert a song name")
+  var songName;
+    if(process.argv[3] === undefined){
+      songName = "The sign Ace of Base"
     }else{
-    var songName = process.argv[3];
+ songName = process.argv[3];}
     var cmd1 = process.argv[2];
     var cmd2 = process.argv[3];
 spotify.search({ type: 'track', query: songName }, function(err, data) {
@@ -79,7 +80,7 @@ spotify.search({ type: 'track', query: songName }, function(err, data) {
     console.log('Saved!');
   });
 });
-}
+
 }
 
 if (process.argv[2] === "movie-this"){
